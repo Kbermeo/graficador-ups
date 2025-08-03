@@ -1,0 +1,75 @@
+:root {
+    --ups-brown: #351C15;
+    --ups-gold: #FFB500;
+    --ups-white: #ffffff;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at center, #FFB500 0%, #351C15 100%);
+    min-height: 100vh;
+  }
+    
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--ups-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--ups-gold);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  header img {
+    max-width: 120px;
+  }
+  
+  h1 {
+    margin: 10px 0;
+    color: var(--ups-brown);
+  }
+  
+  label, button, input {
+    font-size: 16px;
+  }
+  
+  input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    border: 2px solid var(--ups-brown);
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: var(--ups-brown);
+    color: var(--ups-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: var(--ups-gold);
+    color: var(--ups-brown);
+  }
+  
+  #expresion {
+    margin: 20px 0;
+    font-size: 1.2em;
+  }
+  
+  canvas {
+    max-width: 100%;
+    margin-top: 20px;
+  }

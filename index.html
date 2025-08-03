@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graficador de Funciones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.2/math.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <link rel="icon" type="image/jpg" href="Logo.jpg">
+</head>
+<body>
+  <div class="container">
+    <h1>Graficador de Funciones Matemáticas</h1>
+    
+    <label for="funcionUsuario">Escribe una función de x (ej: f(x) = x^2 + 2*x - 3):</label>
+    <input type="text" id="funcionUsuario" placeholder="Ej: x^2 - 4*x + 4" value="x^2">
+
+    <button onclick="graficarFuncion()">Graficar</button>
+
+    <p id="expresion"></p>
+
+    <canvas id="grafico" width="600" height="400"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
