@@ -1,9 +1,39 @@
+function identificarTipoFuncion(expr) {
+  expr = expr.toLowerCase();
+
+  if (/sin|cos|tan|cot|sec|csc/.test(expr)) {
+    return "Función trigonométrica";
+  } else if (/log|ln/.test(expr)) {
+    return "Función logarítmica";
+  } else if (/e\^|exp/.test(expr)) {
+    return "Función exponencial";
+  } else if (/x[^x]*\/[^x]*x|\/x/.test(expr)) {
+    return "Función racional";
+  } else if (/x\^3/.test(expr)) {
+    return "Función cúbica";
+  } else if (/x\^2/.test(expr)) {
+    return "Función cuadrática";
+  } else if (/x\^4/.test(expr)) {
+    return "Función polinomial de cuarta grado";
+  } else if (/x\^5/.test(expr)) {
+    return "Función polinomial de quinta grado";
+  } else if (/x/.test(expr)) {
+    return "Función lineal";
+  } else {
+    return "Función constante o no identificada";
+  }
+}
+
 let chart;
 
 function graficarFuncion() {
   const input = document.getElementById("funcionUsuario").value;
   const x = [];
   const y = [];
+
+  // Identificar tipo de función y mostrarlo
+  const tipo = identificarTipoFuncion(input);
+  document.getElementById("tipoFuncion").innerText = "Tipo de función: " + tipo;
 
   let funcion;
   try {
@@ -27,8 +57,8 @@ function graficarFuncion() {
   }
 
   document.getElementById("expresion").innerHTML = `\\( f(x) = ${input} \\)`;
-  MathJax.typeset(); // Renderiza la fórmula en MathJax
-  
+  MathJax.typeset();
+
   const ctx = document.getElementById("grafico").getContext("2d");
 
   if (chart) chart.destroy();
@@ -37,11 +67,11 @@ function graficarFuncion() {
     return str
       .replace(/\^2/g, '²')
       .replace(/\^3/g, '³')
-      .replace(/\^1\/2/g, '√') // Opcional: reemplaza potencias de 1/2 por raíz
-      .replace(/\*/g, '') // Elimina el * para que se vea más limpio
-      .replace(/\\/g, ''); // Elimina doble barra si el usuario escribió \frac o similares
+      .replace(/\^1\/2/g, '√')
+      .replace(/\*/g, '')
+      .replace(/\\/g, '');
   }
-  
+
   chart = new Chart(ctx, {
     type: "line",
     data: {
